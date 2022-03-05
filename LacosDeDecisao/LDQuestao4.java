@@ -20,7 +20,7 @@ public class LDQuestao4 {
 		}
 		else 
 		{
-			tipo = "impar\nNúmero elevado ao quadrado: ";
+			tipo = "ímpar\nNúmero elevado ao quadrado: ";
 			conta = Math.pow(numero, 2);
 		}
 		
