@@ -40,7 +40,7 @@ public class LDQuestao2 {
 		}
 		
 		System.out.print("\nOrdem crescente: " + menor 
-				+ ", " + meio + ", " + maior + "\nN1 " + n1 + "\nN2 " + n2 + "\nN3 " + n3);
+				+ ", " + meio + ", " + maior);
 	}
 
 }
