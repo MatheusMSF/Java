@@ -39,8 +39,8 @@ public class POOQuestao1 {
 	
 	public void pagar(double x) 
 	{
-		gastoTotal = gastoTotal + x;
-		pontos = pontos + x / 1000;
+		this.gastoTotal = gastoTotal + x;
+		this.pontos = pontos + x / 1000;
 	}
 	
 	

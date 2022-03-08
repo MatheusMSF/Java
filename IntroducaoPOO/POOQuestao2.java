@@ -48,15 +48,15 @@ public class POOQuestao2 {
 	public void estado() 
 	{	
 		
-		System.out.println("Empresa: " + empresa +
-				"\nEm voo: " + voando + 
-				"\nComprimento: " + comprimento +
-				"\nAltura: " + altura +
-				"\nCor: " + cor +
-				"\nQuantidade de passageiros: " + qntPassa +
-				"\nCapacidade máxima de passageiros: " + capacidadePassa +
-				"\nVelocidade Atual: " + velocidadeAtual + 
-				" km/h\nVelocidade máxima: " + velocidadeMax + " km/h");
+		System.out.println("Empresa: " + this.empresa +
+				"\nEm voo: " + this.voando + 
+				"\nComprimento: " + this.comprimento +
+				"\nAltura: " + this.altura +
+				"\nCor: " + this.cor +
+				"\nQuantidade de passageiros: " + this.qntPassa +
+				"\nCapacidade máxima de passageiros: " + this.capacidadePassa +
+				"\nVelocidade Atual: " + this.velocidadeAtual + 
+				" km/h\nVelocidade máxima: " + this.velocidadeMax + " km/h");
 	}
 
 }
