@@ -8,6 +8,12 @@ public class Animal {
 	private String nome;
 	private int idade;
 	
+	public Animal(String nome, int idade) 
+	{
+		this.nome = nome;
+		this.idade = idade;
+	}
+	
 	public void som(String som) 
 	{
 		System.out.println("O animal emite o som: " + som);
@@ -15,14 +21,6 @@ public class Animal {
 
 	public int getIdade() {
 		return idade;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
 	}
 
 	public String getNome() {

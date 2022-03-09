@@ -2,10 +2,9 @@ package Heranca;
 
 public class Preguica extends Animal{
 	
-	public Preguica(String nomePre, int idadePre) 
+	public Preguica(String nome, int idade) 
 	{
-		setNome(nomePre);
-		setIdade(idadePre);
+		super(nome, idade);
 	}
 	
 	public void subir() 

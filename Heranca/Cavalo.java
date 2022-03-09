@@ -2,10 +2,9 @@ package Heranca;
 
 public class Cavalo extends Animal{
 	
-	public Cavalo(String nomeCav, int idadeCav) 
+	public Cavalo(String nome, int idade) 
 	{
-		setNome(nomeCav);
-		setIdade(idadeCav);
+		super(nome, idade);
 	}
 	
 	public void correr() 
