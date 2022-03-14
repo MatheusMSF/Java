@@ -3,82 +3,80 @@ package ProjetoBloco1;
 import java.util.Scanner;
 
 public class CaixaEletronico {
-		
-	Conta contaLogada;
-	boolean contaAutenticada;
 	
-	Scanner leitura = new Scanner(System.in);
+	Scanner ler = new Scanner(System.in);
+	
+	public String adicionarSaldo(double entradaDeDinheiro,double saldo) {
+		saldo =  saldo+entradaDeDinheiro;
 		
-	public  void login()
-	{
-		System.out.print("Insira seu cartão:");
-		String cartao = leitura.nextLine();
-		
-		System.out.print("Insira sua senha:");
-		String senha = leitura.nextLine();
-		
-		
-		contaLogada = new Conta();
-		contaLogada.setCartao(cartao);
-		contaLogada.setSenha(senha);
-		contaAutenticada = contaLogada.validarSenha();
+		return saldo + "";
 	}
 	
-	public void consultarSaldo()
-	{
-		if(contaAutenticada){
-			double consulta = contaLogada.consultarSaldo();
-			System.out.println("Seu saldo é de: R$"+ consulta+ " reais.");
-		}
-	}
-	
-	public void sacar(double valorDoSaque) {
+	public String sacar(double saidaDeDinheiro, double saldo, boolean contaAutenticada) {
+		
+		double novoSaldo;
+		String mensagem = saldo + "";
+		
 		if(contaAutenticada) 
 		{
-			if(valorDoSaque>0)
-			{
-				System.out.println("Você sacou: R$"+valorDoSaque+ " reais.");
-
-				if(valorDoSaque>contaLogada.consultarSaldo()) 
+			if(saidaDeDinheiro>0)
+			{	
+				if(saidaDeDinheiro <= saldo) 
 				{
-					chequeEspecial();
+					System.out.println("Você sacou: R$"+saidaDeDinheiro+ " reais.");
+					
+					novoSaldo = saldo - saidaDeDinheiro;
+					
+					mensagem = novoSaldo + "";
+					
 				}
-				contaLogada.debitarSaldo(valorDoSaque);
+				else if(saidaDeDinheiro > saldo) 
+				{
+					int resposta;
+					
+					System.out.println("Saldo insuficiente, Deseja fazer o cheque especial? ");
+					System.out.println(" [1] --> Sim    	                               	");
+					System.out.println(" [2] --> Não                                        ");
+					resposta = ler.nextInt();
+					if(resposta == 1) chequeEspecial();
+					else System.out.println("Não foi possível sacar, saldo insuficiente");
+					
+				}
+				
 			}else 
 			{
 				System.out.println("Você não pode sacar um valor negativo ou igual a zero, "+
-						"digite outro valor de saque.");
+						"tente novamente.");
 			}
-		}else {
-			System.out.println("Senha inválida, operação de saque não autorizada.");
 		}
-	}
+		else {
+			System.out.println("Conta não altenticada.");
+		}
 		
+		return mensagem;
+	}//4
 	
-	public void depositar(double deposito)
-	{
-		if(contaAutenticada) {
-			if(deposito>0) 
-			{
-				contaLogada.adicionarSaldo(deposito);
-				System.out.println("Deposito de: R$"+deposito+", efetuado com sucesso!");
-			}
-		}else {
-			System.out.println("Senha inválida, operação de deposito não autorizada.");
-		}
-	}
-
-	private void chequeEspecial()
+	public void chequeEspecial()
 	{
 		System.out.println("Você entrou no cheque especial, empréstimo sem juros por 10 dias.");
 	}
 	
-	public void informarCredito()
+	public void informarCredito(double saldo, boolean contaAutenticada)
 	{
-		if(contaAutenticada){
-			contaLogada.verificarCredito();
-		}else {
-			System.out.println("Senha inválida, impossível mostrar se há créditos disponíveis.");
+		if(contaAutenticada)
+		{
+			if(saldo>5000) {
+				System.out.println("Você possui crédito disponível, "
+						+"contate seu gerente para mais informações!");
+			}
+			else 
+			{
+				System.out.println("Você não possui crédito disponível");
+			}
+		}
+		else {
+			System.out.println("Conta não altenticada, impossível mostrar se há créditos disponíveis.");
 		}
 	}
+	
 }
